@@ -1,0 +1,26 @@
+---
+const dias = [
+  { dia: 'Lunes', persona: 'Pr. José Carrasco.' },
+  { dia: 'Martes', persona: 'Pr. Juan Salas.' },
+  { dia: 'Miércoles', persona: 'Toda la Junta.' },
+  { dia: 'Jueves', persona: 'Pr. Arturo Valdivia.' },
+  { dia: 'Viernes', persona: 'Psa. Marlene Mostacero.' },
+];
+---
+
+<section class="w-full bg-white py-20 px-4 flex flex-col items-center">
+  <div class="max-w-2xl w-full flex flex-col items-center gap-8">
+    <span class="text-sm text-blue-900 font-semibold tracking-widest uppercase mb-2">Junta Ejecutiva Regional</span>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-blue-900 mb-2 text-center">Días de atención:</h2>
+    <div class="w-16 h-1 bg-blue-900 mb-6 mx-auto"></div>
+    <!-- Plantilla tipo calendario -->
+    <div class="w-full max-w-lg bg-neutral-50 border border-blue-100 rounded-2xl shadow-lg p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {dias.map((d) => (
+        <div class="flex flex-col items-start bg-white border border-blue-100 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow duration-200">
+          <span class="text-base font-bold text-blue-900 mb-1">{d.dia}</span>
+          <span class="text-sm text-neutral-700">{d.persona}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,54 @@
+
+<!-- Sección de Noticias -->
+<section class="w-full bg-gray-50 py-20 px-4 flex flex-col items-center gap-16">
+    <div class="max-w-4xl w-full text-center mb-8">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-neutral-900 mb-2 tracking-tight">Noticias</h2>
+      <div class="w-20 h-1 mx-auto bg-neutral-300 mb-4"></div>
+    </div>
+    <div class="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      {[ // Ejemplo de noticias
+        {
+          titulo: 'Nueva sede inaugurada',
+          fecha: '10/06/2025',
+          img: '/src/assets/4.jpeg',
+          resumen: 'La Región Huamanga inauguró una nueva sede en el distrito de Carmen Alto, ampliando su alcance y servicio...',
+          link: '#',
+        },
+        {
+          titulo: 'Reconocimiento a voluntarios',
+          fecha: '05/06/2025',
+          img: '/src/assets/3.jpeg',
+          resumen: 'Se realizó una ceremonia especial para reconocer la labor de los voluntarios en los programas sociales...',
+          link: '#',
+        },
+        {
+          titulo: 'Alianza con instituciones',
+          fecha: '28/05/2025',
+          img: '/src/assets/2.jpeg',
+          resumen: 'Se firmó un convenio de colaboración con instituciones educativas para fortalecer la formación cristiana...',
+          link: '#',
+        },
+        {
+          titulo: 'Jornada de salud',
+          fecha: '20/05/2025',
+          img: '/src/assets/1.jpeg',
+          resumen: 'La jornada de salud gratuita benefició a más de 300 personas en la comunidad, brindando atención médica y consejería...',
+          link: '#',
+        },
+      ].map((n) => (
+        <div class="bg-white border border-neutral-200 flex flex-col overflow-hidden hover:shadow-md transition-shadow duration-200">
+          <img src={n.img} alt={n.titulo} class="w-full h-48 object-cover object-center" loading="lazy" />
+          <div class="flex-1 flex flex-col px-6 py-5">
+            <h3 class="text-lg font-bold text-neutral-900 mb-1">{n.titulo}</h3>
+            <div class="flex items-center gap-2 text-neutral-700 text-sm mb-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <span>{n.fecha}</span>
+            </div>
+            <p class="text-neutral-700 text-sm mb-4 line-clamp-4">{n.resumen}</p>
+            <a href={n.link} class="mt-auto inline-block bg-neutral-800 hover:bg-neutral-900 text-white font-semibold px-6 py-2 transition-colors text-base uppercase tracking-wide">Ir a publicación</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+  

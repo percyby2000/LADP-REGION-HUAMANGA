@@ -1,0 +1,23 @@
+---
+---
+
+<script>
+  if (typeof window !== 'undefined') {
+    window.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('scroll-top-btn');
+      const toggleBtn = () => {
+        if (window.scrollY > 120) {
+          btn?.classList.remove('opacity-0', 'pointer-events-none');
+        } else {
+          btn?.classList.add('opacity-0', 'pointer-events-none');
+        }
+      };
+      window.addEventListener('scroll', toggleBtn);
+      toggleBtn();
+    });
+  }
+</script>
+
+<button id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed z-50 bottom-8 right-8 w-12 h-12 bg-yellow-400 text-blue-900 flex items-center justify-center shadow-lg rounded-none transition-all duration-300 opacity-0 pointer-events-none hover:scale-110">
+  <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 15l6-6 6 6"/></svg>
+</button>

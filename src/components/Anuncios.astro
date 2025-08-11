@@ -1,0 +1,91 @@
+---
+const anuncios = [
+  {
+    titulo: 'Lima centro alaba',
+    fecha: '19/07/2025',
+    img: '/src/assets/hero.jpeg',
+    resumen: 'CONCURSO LIMA CENTRO ALABA Rumbo a nuestro Aniversario 106 LADP, tendremos nuestro concurso de canto...',
+    link: '#',
+  },
+  {
+    titulo: 'Lanzamiento esperanza Lima',
+    fecha: '19/07/2025',
+    img: '/src/assets/1.jpeg',
+    resumen: 'Conferencia: Lanzamiento Esperanza Lima 2025 Muy pronto, Lima será el lugar de encuentro para una...',
+    link: '#',
+  },
+  {
+    titulo: 'Congreso misionero',
+    fecha: '15/07/2025',
+    img: '/src/assets/2.jpeg',
+    resumen: 'Congreso de Misiones 2025 HASTA QUE TODOS OIGAN ¡La Gran Comisión no se detiene! Te invitamos...',
+    link: '#',
+  },
+  {
+    titulo: 'Ayuno simultaneos',
+    fecha: '15/07/2025',
+    img: '/src/assets/3.jpeg',
+    resumen: 'AYUNOS SIMILTANEOS Amada familia RLC, estamos a pocos días de nuestros ayunos sectoriales. Un tiempo...',
+    link: '#',
+  },
+  {
+    titulo: 'Ayuno simultaneos',
+    fecha: '15/07/2025',
+    img: '/src/assets/3.jpeg',
+    resumen: 'AYUNOS SIMILTANEOS Amada familia RLC, estamos a pocos días de nuestros ayunos sectoriales. Un tiempo...',
+    link: '#',
+  },
+  {
+    titulo: 'Ayuno simultaneos',
+    fecha: '15/07/2025',
+    img: '/src/assets/3.jpeg',
+    resumen: 'AYUNOS SIMILTANEOS Amada familia RLC, estamos a pocos días de nuestros ayunos sectoriales. Un tiempo...',
+    link: '#',
+  },
+];
+---
+
+<style>
+@keyframes anuncios-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50%)); }
+}
+.anuncios-slider {
+  display: flex;
+  width: max-content;
+  animation: anuncios-scroll 32s linear infinite;
+}
+.anuncios-slider:hover {
+  animation-play-state: paused;
+}
+</style>
+
+<section class="w-full bg-gray-50 py-10 px-4 flex flex-col items-center gap-16">
+  <div class="max-w-4xl w-full text-center mb-8">
+    <h2 class="text-3xl md:text-1xl font-extrabold text-neutral-900 mb-2 tracking-tight">Anuncios</h2>
+    <div class="w-20 h-1 mx-auto bg-neutral-300 mb-4"></div>
+  </div>
+  <div class="w-full max-w-8xl overflow-hidden relative">
+    <div class="anuncios-slider gap-8">
+      {[...anuncios, ...anuncios].map((a, idx) => (
+        <div class="flex min-w-[520px] max-w-[90vw] h-40 bg-white border border-neutral-200 overflow-hidden hover:shadow-md transition-shadow duration-200">
+          <img src={a.img} alt={a.titulo} class="h-full w-40 object-cover object-center flex-shrink-0" loading="lazy" />
+          <div class="flex-1 flex flex-col justify-between px-6 py-4">
+            <div>
+              <h3 class="text-lg font-bold text-neutral-900 mb-1 line-clamp-1">{a.titulo}</h3>
+              <div class="flex items-center gap-2 text-neutral-700 text-sm mb-1">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <span>{a.fecha}</span>
+              </div>
+              <p class="text-neutral-700 text-sm mb-2 line-clamp-2">{a.resumen}</p>
+            </div>
+            <a href={a.link} class="w-auto text-neutral-900 font-semibold px-0 py-1 transition-colors text-sm uppercase tracking-wide mt-2 hover:underline hover:text-neutral-700">Ir a publicación</a>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="text-right mt-2 pr-2">
+      <span class="text-xs text-neutral-400">Desliza o pausa para ver más &rarr;</span>
+    </div>
+  </div>
+</section>

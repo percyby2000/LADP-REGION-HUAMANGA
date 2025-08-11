@@ -1,0 +1,110 @@
+---
+
+import groupImg from '../assets/junta.png';
+import presiImg from '../assets/udarico.svg';
+import viceImg from '../assets/regina.jpg';
+import secreImg from '../assets/3.jpeg';
+import tesorImg from '../assets/4.jpeg';
+
+const members = [
+  {
+    name: 'Pastor Uldarico Villantoy Lolay',
+    role: 'Presidente',
+    img: presiImg.src,
+    achievements: [
+      'Líder regional con 20 años de experiencia',
+      'Fundador de 3 iglesias en Ayacucho',
+      'Conferencista nacional',
+    ],
+    phone: '999-111-111',
+    email: 'presidente@ladphuamanga.pe',
+  },
+  {
+    name: 'Pastora Juana Regina Mallqui Asto',
+    role: 'Vicepresidenta',
+    img: viceImg.src,
+    achievements: [
+      'Impulsora de proyectos sociales',
+      'Mentora de líderes juveniles',
+      'Coordinadora de misiones',
+    ],
+    phone: '999-222-222',
+    email: 'vicepresidenta@ladphuamanga.pe',
+  },
+  {
+    name: 'Pastor Alfredo Espinoza Nuñes',
+    role: 'Secretario',
+    img: secreImg.src,
+    achievements: [
+      'Experto en gestión administrativa',
+      'Docente en seminarios bíblicos',
+      'Autor de publicaciones cristianas',
+    ],
+    phone: '999-333-333',
+    email: 'secretario@ladphuamanga.pe',
+  },
+  {
+    name: 'Pastora Martha Gutiérrez de Anaya',
+    role: 'Tesorera',
+    img: tesorImg.src,
+    achievements: [
+      'Gestora de recursos y finanzas',
+      'Responsable de obras benéficas',
+      'Conferencista en administración',
+    ],
+    phone: '999-444-444',
+    email: 'tesorera@ladphuamanga.pe',
+  },
+];
+---
+
+<section class="w-full min-h-screen bg-white py-12 px-2 sm:px-8 flex flex-col items-center gap-12">
+  <!-- Portada grupal -->
+  <div class="w-full max-w-4xl flex flex-col items-center mb-8">
+    <div class="text-center mt-8 mb-4 z-20">
+      <h1 class="text-gray-900 font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight mb-2">JUNTA EJECUTIVA REGIONAL</h1>
+      <h2 class="text-orange-500 font-extrabold text-xl sm:text-2xl md:text-3xl tracking-wider uppercase mb-1">2024-2027</h2>
+      <p class="text-gray-500 text-sm sm:text-base mb-2">PERIODO 2024 - 2027</p>
+    </div>
+    <div class="w-full flex justify-center">
+      <img src={groupImg.src} alt="Foto grupal Junta Ejecutiva" class="rounded-2xl shadow-2xl border-4 border-gray-200 object-cover w-full max-w-2xl h-64 sm:h-80 md:h-96 bg-white" />
+    </div>
+  </div>
+
+  <!-- Cards individuales -->
+  <div class="w-full max-w-5xl flex flex-col gap-10">
+    {members.map((m) => (
+      <div class="bg-white rounded-2xl shadow-2xl flex flex-col md:flex-row items-center md:items-stretch overflow-hidden hover:scale-[1.02] transition-transform duration-300 group border border-gray-100">
+        <!-- Foto -->
+        <div class="flex-shrink-0 w-full md:w-64 h-64 md:h-auto flex items-center justify-center bg-gray-50">
+          <img src={m.img} alt={m.name} class="object-cover w-full h-full md:rounded-l-2xl md:rounded-tr-none rounded-t-2xl group-hover:brightness-110 transition duration-300" />
+        </div>
+        <!-- Datos -->
+        <div class="flex-1 flex flex-col justify-between p-6 sm:p-8 gap-4">
+          <div>
+            <span class="block text-orange-500 font-semibold text-xs sm:text-sm uppercase tracking-wider mb-1">{m.role}</span>
+            <h2 class="text-gray-900 font-bold text-2xl sm:text-3xl mb-2">{m.name}</h2>
+            <ul class="text-gray-700 text-base sm:text-lg flex flex-col gap-1 mb-4">
+              {m.achievements.map((ach) => (
+                <li class="flex items-start gap-2"><svg class="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>{ach}</li>
+              ))}
+            </ul>
+          </div>
+          <div class="flex items-center gap-6 mt-2">
+            <a href={`tel:${m.phone}`} class="flex items-center gap-1 text-orange-600 hover:text-orange-800 transition"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm0 14a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5a2 2 0 00-2 2v2zm14-14a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5a2 2 0 012-2h2zm0 14a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2h-2a2 2 0 00-2 2v2z"/></svg><span class="text-sm">{m.phone}</span></a>
+            <a href={`mailto:${m.email}`} class="flex items-center gap-1 text-orange-600 hover:text-orange-800 transition"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm0 0v1a4 4 0 01-4 4H8a4 4 0 01-4-4v-1"/></svg><span class="text-sm">{m.email}</span></a>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <style>
+    @media (max-width: 768px) {
+      .md\\:flex-row { flex-direction: column !important; }
+      .md\\:items-stretch { align-items: center !important; }
+      .md\\:w-64 { width: 100% !important; }
+      .md\\:h-auto { height: 16rem !important; }
+    }
+  </style>
+</section>

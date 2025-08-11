@@ -1,0 +1,131 @@
+---
+const eventosProximos = [
+  {
+    titulo: 'Conferencia Regional 2024',
+    fecha: '15-17 Agosto 2024',
+    lugar: 'Auditorio Central LADP',
+    img: '/src/assets/hero.jpeg',
+    descripcion: 'Un encuentro de líderes y miembros para fortalecer la visión y unidad de la región.',
+  },
+  {
+    titulo: 'Campamento Juvenil',
+    fecha: '10-12 Octubre 2024',
+    lugar: 'Centro de Retiros Huamanga',
+    img: '/src/assets/1.jpeg',
+    descripcion: 'Tres días de inspiración, amistad y crecimiento espiritual para jóvenes.',
+  },
+  {
+    titulo: 'Festival de Alabanza',
+    fecha: '5 Diciembre 2024',
+    lugar: 'Plaza Mayor',
+    img: '/src/assets/2.jpeg',
+    descripcion: 'Una noche de música, adoración y celebración abierta a toda la comunidad.',
+  },
+];
+
+const eventosPasados = [
+  {
+    titulo: 'Retiro de Damas',
+    fecha: 'Marzo 2024',
+    img: '/src/assets/3.jpeg',
+    descripcion: 'Un tiempo especial de renovación y comunión para mujeres de la región.',
+  },
+  {
+    titulo: 'Congreso de Niños',
+    fecha: 'Febrero 2024',
+    img: '/src/assets/4.jpeg',
+    descripcion: 'Jornadas de juegos, enseñanza y alegría para los más pequeños.',
+  },
+  {
+    titulo: 'Vigilia Regional',
+    fecha: 'Enero 2024',
+    img: '/src/assets/junta.png',
+    descripcion: 'Una noche de oración y adoración con toda la familia LADP.',
+  },
+];
+---
+
+<style>
+@keyframes slider-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50%)); }
+}
+.slider-autoplay {
+  display: flex;
+  width: max-content;
+  animation: slider-scroll 30s linear infinite;
+}
+.slider-autoplay:hover {
+  animation-play-state: paused;
+}
+</style>
+
+<section class="w-full bg-white py-20 px-4 flex flex-col items-center gap-20">
+  <div class="max-w-5xl w-full text-center mb-8">
+    <h2 class="text-2xl md:text-3xl font-bold text-neutral-900 tracking-widest uppercase mb-2">Eventos</h2>
+    <div class="w-16 h-1 mx-auto bg-neutral-200 rounded mb-4"></div>
+    <p class="text-neutral-600 text-base md:text-lg mb-2">Descubre los próximos eventos y revive los mejores momentos de nuestra comunidad.</p>
+  </div>
+
+  <!-- Carrusel automático de próximos eventos -->
+  <div class="w-full max-w-5xl mb-16 overflow-hidden relative">
+    <div class="slider-autoplay gap-8">
+      {[...eventosProximos, ...eventosProximos].map((ev, idx) => (
+        <div class="min-w-[340px] sm:min-w-[420px] md:min-w-[520px] max-w-[90vw] bg-white border border-neutral-200 rounded-2xl shadow-lg flex flex-col overflow-hidden group hover:scale-105 transition-transform duration-300">
+          <div class="relative">
+            <img src={ev.img} alt={ev.titulo} class="w-full h-56 object-cover object-center group-hover:brightness-95 transition-all duration-300" loading="lazy" />
+            <div class="absolute top-4 left-4 bg-neutral-900/90 px-4 py-1 rounded-full text-xs font-bold text-white shadow backdrop-blur-sm uppercase tracking-wider">{ev.fecha}</div>
+          </div>
+          <div class="flex-1 flex flex-col px-6 py-5 gap-2">
+            <h3 class="text-xl font-bold text-neutral-900 mb-1 line-clamp-2">{ev.titulo}</h3>
+            <span class="text-sm text-neutral-500 mb-1">{ev.lugar}</span>
+            <p class="text-neutral-600 text-sm mb-2 line-clamp-3">{ev.descripcion}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="text-right mt-2 pr-2">
+      <span class="text-xs text-neutral-400">Desliza o pausa para ver más &rarr;</span>
+    </div>
+  </div>
+
+  <!-- Carrusel automático de eventos pasados tipo taquilla -->
+  <div class="w-full max-w-6xl overflow-hidden relative">
+    <h4 class="text-lg font-semibold text-neutral-900 mb-4 tracking-wide uppercase">Eventos Pasados</h4>
+    <div class="slider-autoplay gap-6">
+      {[...eventosPasados, ...eventosPasados].map((ev, idx) => (
+        <div class="min-w-[260px] max-w-[80vw] bg-white border border-neutral-200 rounded-xl shadow flex flex-col overflow-hidden group hover:scale-105 transition-transform duration-300 relative">
+          <div class="relative">
+            <img src={ev.img} alt={ev.titulo} class="w-full h-36 object-cover object-center group-hover:brightness-95 transition-all duration-300" loading="lazy" />
+            <div class="absolute top-3 left-3 bg-neutral-900/90 px-3 py-1 rounded text-xs font-bold text-white shadow backdrop-blur-sm uppercase tracking-wider">{ev.fecha}</div>
+          </div>
+          <div class="flex-1 flex flex-col px-4 py-3 gap-1">
+            <h5 class="text-base font-bold text-neutral-900 mb-1 line-clamp-2">{ev.titulo}</h5>
+            <p class="text-neutral-600 text-xs mb-1 line-clamp-3">{ev.descripcion}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="text-right mt-2 pr-2">
+      <span class="text-xs text-neutral-400">Desliza o pausa para ver más &rarr;</span>
+    </div>
+  </div>
+
+  <!-- Cinta/slider horizontal de banners destacados -->
+  <div class="w-full max-w-7xl mt-20 overflow-hidden relative">
+    <div class="slider-autoplay gap-6">
+      {[...eventosProximos, ...eventosPasados, ...eventosProximos, ...eventosPasados].map((ev, idx) => (
+        <div class="min-w-[200px] h-24 bg-white border border-neutral-200 rounded-lg flex items-center px-6 shadow group hover:scale-105 transition-transform duration-300 relative">
+          <img src={ev.img} alt={ev.titulo} class="w-16 h-16 object-cover object-center rounded-md mr-4 border-2 border-neutral-100 shadow" loading="lazy" />
+          <div class="flex-1">
+            <span class="block text-xs text-neutral-500 uppercase font-semibold tracking-wider">{ev.fecha}</span>
+            <span class="block text-base font-bold text-neutral-900 leading-tight line-clamp-1">{ev.titulo}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="text-right mt-2 pr-2">
+      <span class="text-xs text-neutral-400">Desliza o pausa para ver más &rarr;</span>
+    </div>
+  </div>
+</section>
