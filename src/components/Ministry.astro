@@ -1,128 +1,227 @@
 ---
 const ministerios = [
+  // MINISTERIOS
   {
-    nombre: 'Misiones',
-    coordinador: 'Edith Pariona',
-    descripcion: 'Equipo pastoral en la Iglesia Cristo Rey de Gloria - Musa, La Molina. Se desarrolla en el ministerio local de Misiones, movilizando los anexos de la iglesia.',
-    telefono: '927 494 210',
-    email: 'min.misiones@ladpregionlimacentro.com',
+    nombre: 'Damas',
+    coordinador: 'Coordinadora Regional de Damas',
+    descripcion: 'Ministerio dedicado al fortalecimiento espiritual de las mujeres de la iglesia, promoviendo la unión familiar, el desarrollo personal y el servicio a la comunidad.',
+    telefono: '#',
+    email: 'min.damas@ladpregionhuamanga.com',
     web: '#',
-    img: '/src/assets/1.jpeg',
-  },
-  {
-    nombre: 'Educación Cristiana',
-    coordinador: 'Psa. Carmen Medina',
-    descripcion: 'Ministerio pastoral por más de 25 años en LADP. Docente de Biblia en institutos y seminarios (Lima y provincias) por más de 22 años en LADP.',
-    telefono: '994 435 596',
-    email: 'min.educacioncristiana@ladpregionlimacentro.com',
-    web: '#',
-    img: '/src/assets/2.jpeg',
+    img: '/min-damas.jpg',
+    tipo: 'ministerio'
   },
   {
     nombre: 'Carcelario',
-    coordinador: 'Enrique Salazar',
-    descripcion: 'Enseñanza en discipulado en la iglesia Las Buenas Nuevas, Surquillo. Formó parte del equipo de intercesión de la Región Lima Centro en 2022 y 2023.',
-    telefono: '965 446 620',
-    email: 'min.carcelario@ladpregionlimacentro.com',
+    coordinador: 'Coordinador Regional Carcelario',
+    descripcion: 'Ministerio de evangelización y discipulado en centros penitenciarios, llevando esperanza y restauración a los privados de libertad.',
+    telefono: '#',
+    email: 'min.carcelario@ladpregionhuamanga.com',
     web: '#',
-    img: '/src/assets/3.jpeg',
+    img: '/min-carcelario.jpg',
+    tipo: 'ministerio'
   },
   {
-    nombre: 'Damas',
-    coordinador: 'Rosa Mendoza',
-    descripcion: 'Miembro del Cuerpo pastoral de la iglesia Manantial de Vida - Chorrillos. Responsable de pastorear el ministerio de Damas y el ministerio Infantil en su iglesia local.',
-    telefono: '992 631 775',
-    email: 'min.damas@ladpregionlimacentro.com',
+    nombre: 'Familia',
+    coordinador: 'Coordinador Regional de Familia',
+    descripcion: 'Ministerio enfocado en fortalecer los vínculos familiares, matrimoniales y la crianza de hijos bajo principios bíblicos.',
+    telefono: '#',
+    email: 'min.familia@ladpregionhuamanga.com',
     web: '#',
-    img: '/src/assets/4.jpeg',
-  },
-  {
-    nombre: 'Estrategias y Crecimiento',
-    coordinador: 'Henry Briceño',
-    descripcion: 'Pastor principal en la Iglesia Dos de Mayo LADP - Cercado de Lima. Apasionado por enseñar la palabra de Dios y consolidar nuevas ideas.',
-    telefono: '995 306 807',
-    email: 'min.estrategiasdc@ladpregionlimacentro.com',
-    web: '#',
-    img: '/src/assets/junta.png',
+    img: '/min-familia.jpg',
+    tipo: 'ministerio'
   },
   {
     nombre: 'Intercesión',
-    coordinador: 'Luisa Conga',
-    descripcion: 'Pastora principal en la Iglesia Nazareth - Breña, supervisando los ministerios. Directora Local del Centro de Formación Bíblica Ministerial.',
-    telefono: '954 916 024',
-    email: 'min.intercesion@ladpregionlimacentro.com',
+    coordinador: 'Coordinador Regional de Intercesión',
+    descripcion: 'Ministerio dedicado a la oración, intercesión y guerra espiritual, fortaleciendo la vida de oración de la iglesia.',
+    telefono: '#',
+    email: 'min.intercesion@ladpregionhuamanga.com',
     web: '#',
-    img: '/src/assets/hero.jpeg',
+    img: '/min-intercecion.jpg',
+    tipo: 'ministerio'
   },
   {
-    nombre: 'Evangelismo',
-    coordinador: 'Johnny Mego',
-    descripcion: 'Pastor principal en la Iglesia Amor y Restauración - Cercado de Lima. "Servir es tener pasión y amor por cada vida que necesita una palabra de esperanza".',
-    telefono: '980 752 061',
-    email: 'min.evangelismo@ladpregionlimacentro.com',
+    nombre: 'Varones',
+    coordinador: 'Coordinador Regional de Varones',
+    descripcion: 'Ministerio que fortalece el liderazgo masculino en la iglesia y el hogar, promoviendo la responsabilidad y el servicio cristiano.',
+    telefono: '#',
+    email: 'min.varones@ladpregionhuamanga.com',
     web: '#',
-    img: '/src/assets/eje.png',
+    img: '/min-varones.jpg',
+    tipo: 'ministerio'
   },
   {
-    nombre: 'Atención al Ministro Anciano',
-    coordinador: 'Norma Sandoval',
-    descripcion: 'Equipo Ministerial de la Iglesia Juan 17:21 - Cercado de Lima. Misionera, Editora y Gestora de Proyectos.',
-    telefono: '985 909 103',
-    email: 'min.ama@ladpregionlimacentro.com',
+    nombre: 'Plantación de Iglesias',
+    coordinador: 'Coordinador Regional de Plantación',
+    descripcion: 'Ministerio estratégico para la expansión del Reino de Dios mediante el establecimiento de nuevas iglesias en toda la región.',
+    telefono: '#',
+    email: 'min.plantacion@ladpregionhuamanga.com',
     web: '#',
-    img: '/src/assets/juntas.png',
-  },
-  {
-    nombre: 'Música',
-    coordinador: 'Samuel Bardales',
-    descripcion: 'Pastor de Alabanza en la Iglesia El Buen Pastor - Breña. "Oro para que el mover de Dios pueda ser una realidad en medio de nuestra adoración corporativa".',
-    telefono: '957 843 694',
-    email: 'min.musica@ladpregionlimacentro.com',
-    web: '#',
-    img: '/src/assets/icono.png',
+    img: '/min-plantacióndeiglesias.jpg',
+    tipo: 'ministerio'
   },
   {
     nombre: 'Niños y Adolescentes',
-    coordinador: 'Marisol Najarro',
-    descripcion: 'Maestra y líder en la Iglesia Templo Apostólico - La Victoria. Ha realizado campañas evangelísticas dirigidas a niños en distintas provincias.',
-    telefono: '967 137 709',
-    email: 'min.ninosyadolescentes@ladpregionlimacentro.com',
-    web: '#',
-    img: '/src/assets/regina.jpg',
+    coordinador: 'Coordinador Regional Infantil',
+    descripcion: 'Ministerio dedicado a la formación espiritual, educativa y social de niños y adolescentes en la fe cristiana.',
+    telefono: '#',
+    email: 'min.ninos@ladpregionhuamanga.com',
+    web: 'https://hijosdeministros.vercel.app/',
+    img: '/min-niñosyadolecentes.jpg',
+    tipo: 'ministerio'
   },
+  {
+    nombre: 'Música',
+    coordinador: 'Coordinador Regional de Música',
+    descripcion: 'Ministerio de alabanza y adoración que coordina la música y los coros en todas las iglesias de la región.',
+    telefono: '#',
+    email: '',
+    web: 'https://ladpmusicahuamanga.vercel.app/',
+    img: '/min-musica.jpg',
+    tipo: 'ministerio'
+  },
+  {
+    nombre: 'Jóvenes',
+    coordinador: 'Coordinador Regional de Jóvenes',
+    descripcion: 'Ministerio enfocado en el desarrollo integral de los jóvenes, su liderazgo y compromiso con la obra de Dios.',
+    telefono: '#',
+    email: 'min.jovenes@ladpregionhuamanga.com',
+    web: '#',
+    img: '/min-jovenes.jpg',
+    tipo: 'ministerio'
+  },
+  {
+    nombre: 'Educación Cristiana',
+    coordinador: 'Director Regional de Educación Cristiana',
+    descripcion: 'Dirección encargada de la formación bíblica y teológica, capacitando a líderes y miembros en el conocimiento de la Palabra de Dios.',
+    telefono: '#',
+    email: 'dir.educacion@ladpregionhuamanga.com',
+    web: '#',
+    img: '/educacion-cristiana.jpg',
+    tipo: 'direccion'
+  },
+  {
+    nombre: 'Proyección Social',
+    coordinador: 'Director Regional de Proyección Social',
+    descripcion: 'Dirección enfocada en el servicio a la comunidad, desarrollando proyectos de ayuda social y desarrollo comunitario.',
+    telefono: '#',
+    email: 'dir.proyeccion@ladpregionhuamanga.com',
+    web: '#',
+    img: '/proyeccionsocial.jpg',
+    tipo: 'direccion'
+  },
+  
+  // DIRECCIONES
+  {
+    nombre: 'Dirección de Misiones',
+    coordinador: 'Director Regional de Misiones',
+    descripcion: 'Dirección encargada de coordinar y supervisar toda la actividad misionera regional, nacional e internacional.',
+    telefono: '#',
+    email: 'dir.misiones@ladpregionhuamanga.com',
+    web: '#',
+    img: '/direccion- misiones.jpg',
+    tipo: 'direccion'
+  },
+  {
+    nombre: 'Dirección de Atención al Anciano',
+    coordinador: 'Director de Atención Ministro Anciano',
+    descripcion: 'Dirección especializada en el cuidado, atención y bienestar de los ministros ancianos y sus familias.',
+    telefono: '#',
+    email: 'dir.anciano@ladpregionhuamanga.com',
+    web: '#',
+    img: '/direccion-atencion-al-anciano.jpg',
+    tipo: 'direccion'
+  },
+  {
+    nombre: 'Dirección de Unidades Estratégicas',
+    coordinador: 'Director de Unidades Estratégicas',
+    descripcion: 'Dirección que planifica y ejecuta estrategias de crecimiento, desarrollo organizacional y expansión regional.',
+    telefono: '#',
+    email: 'dir.estrategicas@ladpregionhuamanga.com',
+    web: '#',
+    img: '/direccion-unidades-estrategicas.jpg',
+    tipo: 'direccion'
+  },
+  {
+    nombre: 'Dirección de Comunicaciones',
+    coordinador: 'Director Regional de Comunicaciones',
+    descripcion: 'Dirección encargada de la comunicación institucional, medios digitales y difusión de contenidos regionales.',
+    telefono: '#',
+    email: 'dir.comunicaciones@ladpregionhuamanga.com',
+    web: '#',
+    img: '/director-comunicaciones.jpg',
+    tipo: 'direccion'
+  },
+
+  
 ];
 ---
 
 <section class="w-full bg-white py-20 px-4 flex flex-col items-center gap-16">
   <div class="max-w-4xl w-full text-center mb-8">
-    <h2 class="text-2xl md:text-3xl font-bold text-neutral-900 tracking-widest uppercase mb-2">Ministerios RLC</h2>
+    <h2 class="text-2xl md:text-3xl font-bold text-neutral-900 tracking-widest uppercase mb-2">Ministerios y Direcciones RH</h2>
     <div class="w-16 h-1 mx-auto bg-neutral-200 rounded mb-4"></div>
     <blockquote class="italic text-base md:text-lg text-neutral-600 font-medium mb-6 border-l-4 border-neutral-200 pl-4 max-w-2xl mx-auto">Haya, pues, en vosotros este sentir que hubo también en Cristo Jesús, el cual, siendo en forma de Dios, no estimó el ser igual a Dios como cosa a que aferrarse, sino que se despojó a sí mismo, tomando forma de siervo, hecho semejante a los hombres (Filipenses 2:5-7).</blockquote>
   </div>
-  <div class="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-    {ministerios.map((min) => (
-      <div class="bg-white border border-neutral-200 rounded-xl shadow-sm flex flex-col overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-        <div class="relative">
-          <img src={min.img} alt={min.nombre} class="w-full h-56 object-cover object-center transition-all duration-300 group-hover:scale-105 group-hover:brightness-95 border-b border-neutral-200" loading="lazy" />
-          <div class="absolute top-4 left-4 bg-white/80 px-3 py-1 rounded-md text-xs font-semibold text-neutral-700 shadow-sm backdrop-blur-sm uppercase tracking-wider">{min.nombre}</div>
-        </div>
-        <div class="flex-1 flex flex-col px-6 py-6 gap-2">
-          <div class="flex items-center gap-2 mb-1">
-            <span class="text-base font-semibold text-neutral-900">{min.coordinador}</span>
+
+  <!-- MINISTERIOS -->
+  <div class="w-full max-w-7xl">
+    <h3 class="text-xl md:text-2xl font-bold text-neutral-800 tracking-wide uppercase mb-8 text-center">Ministerios</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-16">
+      {ministerios.filter(item => item.tipo === 'ministerio').map((min) => (
+        <div class="bg-white border border-neutral-200 rounded-xl shadow-sm flex flex-col overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="relative">
+            <img src={min.img} alt={min.nombre} class="w-full h-64 object-contain object-center bg-gray-50 transition-all duration-300 group-hover:scale-105 group-hover:brightness-95 border-b border-neutral-200" loading="lazy" />
+            <div class="absolute top-4 left-4 bg-white/80 px-3 py-1 rounded-md text-xs font-semibold text-neutral-700 shadow-sm backdrop-blur-sm uppercase tracking-wider">{min.nombre}</div>
           </div>
-          <div class="border-b border-neutral-100 my-2"></div>
-          <p class="text-neutral-600 text-sm mb-3 leading-relaxed">{min.descripcion}</p>
-          <div class="flex flex-col gap-1 mb-3">
-            <span class="text-xs text-neutral-700 flex items-center gap-2"><svg class="w-4 h-4 text-neutral-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5.75A2.75 2.75 0 0 1 5.75 3h2.5A2.75 2.75 0 0 1 11 5.75v1.5A2.75 2.75 0 0 1 8.25 10h-2.5A2.75 2.75 0 0 1 3 7.25v-1.5zm0 12.5A2.75 2.75 0 0 0 5.75 21h2.5A2.75 2.75 0 0 0 11 18.25v-1.5A2.75 2.75 0 0 0 8.25 14h-2.5A2.75 2.75 0 0 0 3 16.75v1.5zm10-12.5A2.75 2.75 0 0 1 15.75 3h2.5A2.75 2.75 0 0 1 21 5.75v1.5A2.75 2.75 0 0 1 18.25 10h-2.5A2.75 2.75 0 0 1 13 7.25v-1.5zm0 12.5A2.75 2.75 0 0 0 15.75 21h2.5A2.75 2.75 0 0 0 21 18.25v-1.5A2.75 2.75 0 0 0 18.25 14h-2.5A2.75 2.75 0 0 0 13 16.75v1.5z"/></svg> <span>{min.telefono}</span></span>
-            <span class="text-xs text-neutral-700 flex items-center gap-2"><svg class="w-4 h-4 text-neutral-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm0 0v1a4 4 0 01-4 4H8a4 4 0 01-4-4v-1"/></svg> <span>{min.email}</span></span>
+          <div class="flex-1 flex flex-col px-6 py-6 gap-2">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-base font-semibold text-neutral-900">{min.coordinador}</span>
+            </div>
+            <div class="border-b border-neutral-100 my-2"></div>
+            <p class="text-neutral-600 text-sm mb-3 leading-relaxed">{min.descripcion}</p>
+            <div class="flex flex-col gap-1 mb-3">
+              <span class="text-xs text-neutral-700 flex items-center gap-2"><svg class="w-4 h-4 text-neutral-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5.75A2.75 2.75 0 0 1 5.75 3h2.5A2.75 2.75 0 0 1 11 5.75v1.5A2.75 2.75 0 0 1 8.25 10h-2.5A2.75 2.75 0 0 1 3 7.25v-1.5zm0 12.5A2.75 2.75 0 0 0 5.75 21h2.5A2.75 2.75 0 0 0 11 18.25v-1.5A2.75 2.75 0 0 0 8.25 14h-2.5A2.75 2.75 0 0 0 3 16.75v1.5zm10-12.5A2.75 2.75 0 0 1 15.75 3h2.5A2.75 2.75 0 0 1 21 5.75v1.5A2.75 2.75 0 0 1 18.25 10h-2.5A2.75 2.75 0 0 1 13 7.25v-1.5zm0 12.5A2.75 2.75 0 0 0 15.75 21h2.5A2.75 2.75 0 0 0 21 18.25v-1.5A2.75 2.75 0 0 0 18.25 14h-2.5A2.75 2.75 0 0 0 13 16.75v1.5z"/></svg> <span>{min.telefono}</span></span>
+              <span class="text-xs text-neutral-700 flex items-center gap-2"><svg class="w-4 h-4 text-neutral-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm0 0v1a4 4 0 01-4 4H8a4 4 0 01-4-4v-1"/></svg> <span>{min.email}</span></span>
+            </div>
+            <div class="flex-1"></div>
+            <a href={min.web} target="_blank" class="mt-2 inline-flex items-center justify-center gap-2 bg-neutral-900 text-white font-medium px-4 py-2 rounded-lg shadow-sm hover:bg-neutral-700 transition-colors text-xs tracking-wide uppercase">Contactar <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
           </div>
-          <div class="flex-1"></div>
-          <a href={min.web} target="_blank" class="mt-2 inline-flex items-center justify-center gap-2 bg-neutral-900 text-white font-medium px-4 py-2 rounded-lg shadow-sm hover:bg-neutral-700 transition-colors text-xs tracking-wide uppercase">Visitar web <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
         </div>
-      </div>
-    ))}
+      ))}
+    </div>
   </div>
+
+  <!-- DIRECCIONES -->
+  <div class="w-full max-w-7xl">
+    <h3 class="text-xl md:text-2xl font-bold text-neutral-800 tracking-wide uppercase mb-8 text-center">Direcciones</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      {ministerios.filter(item => item.tipo === 'direccion').map((dir) => (
+        <div class="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-xl shadow-sm flex flex-col overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="relative">
+            <img src={dir.img} alt={dir.nombre} class="w-full h-64 object-contain object-center bg-blue-50 transition-all duration-300 group-hover:scale-105 group-hover:brightness-95 border-b border-blue-200" loading="lazy" />
+            <div class="absolute top-4 left-4 bg-blue-600/90 text-white px-3 py-1 rounded-md text-xs font-semibold shadow-sm backdrop-blur-sm uppercase tracking-wider">{dir.nombre}</div>
+          </div>
+          <div class="flex-1 flex flex-col px-6 py-6 gap-2">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-base font-semibold text-blue-900">{dir.coordinador}</span>
+            </div>
+            <div class="border-b border-blue-200 my-2"></div>
+            <p class="text-blue-700 text-sm mb-3 leading-relaxed">{dir.descripcion}</p>
+            <div class="flex flex-col gap-1 mb-3">
+              <span class="text-xs text-blue-700 flex items-center gap-2"><svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5.75A2.75 2.75 0 0 1 5.75 3h2.5A2.75 2.75 0 0 1 11 5.75v1.5A2.75 2.75 0 0 1 8.25 10h-2.5A2.75 2.75 0 0 1 3 7.25v-1.5zm0 12.5A2.75 2.75 0 0 0 5.75 21h2.5A2.75 2.75 0 0 0 11 18.25v-1.5A2.75 2.75 0 0 0 8.25 14h-2.5A2.75 2.75 0 0 0 3 16.75v1.5zm10-12.5A2.75 2.75 0 0 1 15.75 3h2.5A2.75 2.75 0 0 1 21 5.75v1.5A2.75 2.75 0 0 1 18.25 10h-2.5A2.75 2.75 0 0 1 13 7.25v-1.5zm0 12.5A2.75 2.75 0 0 0 15.75 21h2.5A2.75 2.75 0 0 0 21 18.25v-1.5A2.75 2.75 0 0 0 18.25 14h-2.5A2.75 2.75 0 0 0 13 16.75v1.5z"/></svg> <span>{dir.telefono}</span></span>
+              <span class="text-xs text-blue-700 flex items-center gap-2"><svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm0 0v1a4 4 0 01-4 4H8a4 4 0 01-4-4v-1"/></svg> <span>{dir.email}</span></span>
+            </div>
+            <div class="flex-1"></div>
+            <a href={dir.web} target="_blank" class="mt-2 inline-flex items-center justify-center gap-2 bg-blue-600 text-white font-medium px-4 py-2 rounded-lg shadow-sm hover:bg-blue-700 transition-colors text-xs tracking-wide uppercase">Contactar <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
   <div class="w-full text-center mt-16">
-    <a href="#" class="inline-block bg-neutral-900 text-white font-semibold px-8 py-3 rounded-xl shadow hover:bg-neutral-700 transition-colors text-base tracking-wide">Buscar Iglesias RLC por distrito</a>
+    <a href="#" class="inline-block bg-neutral-900 text-white font-semibold px-8 py-3 rounded-xl shadow hover:bg-neutral-700 transition-colors text-base tracking-wide">Buscar Iglesias RH por distrito</a>
   </div>
 </section>

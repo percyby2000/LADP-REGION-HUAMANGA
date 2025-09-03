@@ -1,46 +1,46 @@
 ---
 const eventosProximos = [
   {
-    titulo: 'Conferencia Regional 2024',
-    fecha: '15-17 Agosto 2024',
-    lugar: 'Auditorio Central LADP',
-    img: '/src/assets/hero.jpeg',
-    descripcion: 'Un encuentro de líderes y miembros para fortalecer la visión y unidad de la región.',
+    titulo: 'Cumbre de Ministerios 2025',
+    fecha: '15-17 Octubre 2025',
+    lugar: 'Centro de Convenciones Huamanga',
+    img: '/cumbre.jpg',
+    descripcion: 'Gran encuentro de líderes ministeriales para fortalecer la visión y estrategias de crecimiento regional.',
   },
   {
-    titulo: 'Campamento Juvenil',
-    fecha: '10-12 Octubre 2024',
-    lugar: 'Centro de Retiros Huamanga',
-    img: '/src/assets/1.jpeg',
-    descripcion: 'Tres días de inspiración, amistad y crecimiento espiritual para jóvenes.',
+    titulo: 'Avivamiento 2025',
+    fecha: '5-7 Diciembre 2025',
+    lugar: 'Estadio Regional Huamanga',
+    img: '/LOGO-AVIVAMIENTO-2024.png',
+    descripcion: 'Tres días de avivamiento espiritual, sanidad y milagros para toda la región.',
   },
   {
-    titulo: 'Festival de Alabanza',
-    fecha: '5 Diciembre 2024',
-    lugar: 'Plaza Mayor',
-    img: '/src/assets/2.jpeg',
-    descripcion: 'Una noche de música, adoración y celebración abierta a toda la comunidad.',
+    titulo: 'Campaña Infantil',
+    fecha: '20-22 Noviembre 2025',
+    lugar: 'Parque Mariscal Cáceres',
+    img: '/campaniños.jpg',
+    descripcion: 'Evento especial para niños con juegos, enseñanzas bíblicas y actividades recreativas.',
   },
 ];
 
 const eventosPasados = [
   {
-    titulo: 'Retiro de Damas',
-    fecha: 'Marzo 2024',
-    img: '/src/assets/3.jpeg',
-    descripcion: 'Un tiempo especial de renovación y comunión para mujeres de la región.',
+    titulo: 'Encuentro de Damas',
+    fecha: 'Julio 2025',
+    img: '/damas.jpg',
+    descripcion: 'Tiempo especial de renovación espiritual y fortalecimiento de vínculos entre las mujeres de la región.',
   },
   {
-    titulo: 'Congreso de Niños',
-    fecha: 'Febrero 2024',
-    img: '/src/assets/4.jpeg',
-    descripcion: 'Jornadas de juegos, enseñanza y alegría para los más pequeños.',
+    titulo: 'Devocional 40 Días',
+    fecha: 'Mayo 2025',
+    img: '/debocional40dias.jpg',
+    descripcion: 'Campaña regional de oración y ayuno que transformó vidas en toda la región Huamanga.',
   },
   {
-    titulo: 'Vigilia Regional',
-    fecha: 'Enero 2024',
-    img: '/src/assets/junta.png',
-    descripcion: 'Una noche de oración y adoración con toda la familia LADP.',
+    titulo: 'La Resistencia',
+    fecha: 'Marzo 2025',
+    img: '/laresistencia.png',
+    descripcion: 'Evento juvenil de fortalecimiento espiritual y resistencia ante las adversidades.',
   },
 ];
 ---
@@ -68,64 +68,150 @@ const eventosPasados = [
   </div>
 
   <!-- Carrusel automático de próximos eventos -->
-  <div class="w-full max-w-5xl mb-16 overflow-hidden relative">
+  <div class="w-full max-w-6xl mb-16 overflow-hidden relative">
+    <h3 class="text-xl md:text-2xl font-bold text-neutral-800 tracking-wide uppercase mb-8 text-center">Próximos Eventos</h3>
     <div class="slider-autoplay gap-8">
       {[...eventosProximos, ...eventosProximos].map((ev, idx) => (
-        <div class="min-w-[340px] sm:min-w-[420px] md:min-w-[520px] max-w-[90vw] bg-white border border-neutral-200 rounded-2xl shadow-lg flex flex-col overflow-hidden group hover:scale-105 transition-transform duration-300">
-          <div class="relative">
-            <img src={ev.img} alt={ev.titulo} class="w-full h-56 object-cover object-center group-hover:brightness-95 transition-all duration-300" loading="lazy" />
-            <div class="absolute top-4 left-4 bg-neutral-900/90 px-4 py-1 rounded-full text-xs font-bold text-white shadow backdrop-blur-sm uppercase tracking-wider">{ev.fecha}</div>
-          </div>
-          <div class="flex-1 flex flex-col px-6 py-5 gap-2">
-            <h3 class="text-xl font-bold text-neutral-900 mb-1 line-clamp-2">{ev.titulo}</h3>
-            <span class="text-sm text-neutral-500 mb-1">{ev.lugar}</span>
-            <p class="text-neutral-600 text-sm mb-2 line-clamp-3">{ev.descripcion}</p>
+        <div class="min-w-[350px] sm:min-w-[400px] md:min-w-[450px] max-w-[90vw] relative group hover:scale-105 transition-all duration-300">
+          <!-- Flyer con forma inclinada -->
+          <div class="bg-gradient-to-br from-blue-500 via-blue-600 to-purple-700 rounded-3xl shadow-2xl transform rotate-2 group-hover:rotate-0 transition-transform duration-500 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
+            <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full translate-y-12 -translate-x-12"></div>
+            
+            <div class="relative z-10 p-8">
+              <!-- Imagen circular flotante -->
+              <div class="absolute -top-6 -right-6 w-24 h-24 rounded-full overflow-hidden border-4 border-white/30 shadow-xl">
+                <img src={ev.img} alt={ev.titulo} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
+              </div>
+              
+              <!-- Fecha destacada -->
+              <div class="inline-block bg-yellow-400 text-black px-4 py-2 rounded-full text-xs font-black mb-6 shadow-lg transform -rotate-3 group-hover:rotate-0 transition-transform duration-300">
+                {ev.fecha}
+              </div>
+              
+              <!-- Contenido principal -->
+              <h3 class="text-2xl md:text-3xl font-black text-white mb-4 leading-tight">{ev.titulo}</h3>
+              
+              <div class="flex items-center text-yellow-300 mb-4">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span class="text-sm font-bold">{ev.lugar}</span>
+              </div>
+              
+              <p class="text-white/90 text-sm mb-6 leading-relaxed">{ev.descripcion}</p>
+              
+              <!-- Botones estilo sticker -->
+              <div class="flex gap-3 mt-6">
+                <button class="bg-white text-blue-700 px-6 py-3 rounded-full font-bold text-sm hover:bg-yellow-400 hover:text-black transition-all duration-300 shadow-lg transform hover:scale-110 flex items-center gap-2">
+                  ¡MÁS INFO!
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                  </svg>
+                </button>
+                <button class="border-3 border-yellow-400 bg-yellow-400/20 text-yellow-300 px-6 py-3 rounded-full font-bold text-sm hover:bg-yellow-400 hover:text-black transition-all duration-300 shadow-lg transform hover:scale-110">
+                  REGÍSTRATE
+                </button>
+              </div>
+            </div>
+            
+            <!-- Decoración adicional -->
+            <div class="absolute bottom-4 right-4 w-16 h-16 border-4 border-white/20 rounded-full"></div>
           </div>
         </div>
       ))}
     </div>
-    <div class="text-right mt-2 pr-2">
-      <span class="text-xs text-neutral-400">Desliza o pausa para ver más &rarr;</span>
+    <div class="text-center mt-4">
+      <span class="text-xs text-neutral-400">🎪 Desliza para ver más eventos increíbles &rarr;</span>
     </div>
   </div>
 
   <!-- Carrusel automático de eventos pasados tipo taquilla -->
   <div class="w-full max-w-6xl overflow-hidden relative">
-    <h4 class="text-lg font-semibold text-neutral-900 mb-4 tracking-wide uppercase">Eventos Pasados</h4>
+    <h4 class="text-lg font-semibold text-neutral-900 mb-6 tracking-wide uppercase text-center">Eventos Pasados</h4>
     <div class="slider-autoplay gap-6">
       {[...eventosPasados, ...eventosPasados].map((ev, idx) => (
-        <div class="min-w-[260px] max-w-[80vw] bg-white border border-neutral-200 rounded-xl shadow flex flex-col overflow-hidden group hover:scale-105 transition-transform duration-300 relative">
-          <div class="relative">
-            <img src={ev.img} alt={ev.titulo} class="w-full h-36 object-cover object-center group-hover:brightness-95 transition-all duration-300" loading="lazy" />
-            <div class="absolute top-3 left-3 bg-neutral-900/90 px-3 py-1 rounded text-xs font-bold text-white shadow backdrop-blur-sm uppercase tracking-wider">{ev.fecha}</div>
-          </div>
-          <div class="flex-1 flex flex-col px-4 py-3 gap-1">
-            <h5 class="text-base font-bold text-neutral-900 mb-1 line-clamp-2">{ev.titulo}</h5>
-            <p class="text-neutral-600 text-xs mb-1 line-clamp-3">{ev.descripcion}</p>
+        <div class="min-w-[280px] max-w-[80vw] relative group hover:scale-105 transition-all duration-300">
+          <!-- Flyer tipo polaroid -->
+          <div class="bg-white rounded-2xl shadow-2xl transform -rotate-1 group-hover:rotate-1 transition-all duration-500 overflow-hidden border-8 border-white">
+            <div class="relative">
+              <img src={ev.img} alt={ev.titulo} class="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
+              
+              <!-- Sticker de fecha -->
+              <div class="absolute top-3 right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-black shadow-lg transform rotate-12 group-hover:rotate-6 transition-transform duration-300">
+                {ev.fecha}
+              </div>
+              
+              <!-- Sello de "REALIZADO" -->
+              <div class="absolute bottom-3 left-3 bg-green-600/90 backdrop-blur-sm text-white px-2 py-1 rounded text-xs font-bold shadow transform -rotate-12 border-2 border-green-400">
+                ✓ REALIZADO
+              </div>
+            </div>
+            
+            <!-- Área de texto como etiqueta -->
+            <div class="p-4 bg-white relative">
+              <h5 class="text-base font-black text-neutral-900 mb-2 leading-tight">{ev.titulo}</h5>
+              <p class="text-neutral-600 text-xs mb-3 leading-relaxed">{ev.descripcion}</p>
+              
+              <button class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full font-bold text-xs hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg transform hover:scale-110 flex items-center gap-2 mx-auto">
+                📸 VER FOTOS
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </button>
+              
+              <!-- Decoración de esquina -->
+              <div class="absolute top-1 right-1 w-3 h-3 bg-yellow-400 rounded-full"></div>
+            </div>
           </div>
         </div>
       ))}
     </div>
-    <div class="text-right mt-2 pr-2">
-      <span class="text-xs text-neutral-400">Desliza o pausa para ver más &rarr;</span>
+    <div class="text-center mt-4">
+      <span class="text-xs text-neutral-400">📷 Revive los mejores momentos &rarr;</span>
     </div>
   </div>
 
   <!-- Cinta/slider horizontal de banners destacados -->
   <div class="w-full max-w-7xl mt-20 overflow-hidden relative">
-    <div class="slider-autoplay gap-6">
+    <h4 class="text-lg font-semibold text-neutral-900 mb-6 tracking-wide uppercase text-center">Todos los Eventos</h4>
+    <div class="slider-autoplay gap-4">
       {[...eventosProximos, ...eventosPasados, ...eventosProximos, ...eventosPasados].map((ev, idx) => (
-        <div class="min-w-[200px] h-24 bg-white border border-neutral-200 rounded-lg flex items-center px-6 shadow group hover:scale-105 transition-transform duration-300 relative">
-          <img src={ev.img} alt={ev.titulo} class="w-16 h-16 object-cover object-center rounded-md mr-4 border-2 border-neutral-100 shadow" loading="lazy" />
-          <div class="flex-1">
-            <span class="block text-xs text-neutral-500 uppercase font-semibold tracking-wider">{ev.fecha}</span>
-            <span class="block text-base font-bold text-neutral-900 leading-tight line-clamp-1">{ev.titulo}</span>
+        <div class="min-w-[300px] relative group hover:scale-105 transition-all duration-300">
+          <!-- Ticket/entrada estilo -->
+          <div class="bg-gradient-to-r from-amber-100 via-white to-amber-100 border-2 border-dashed border-amber-400 rounded-2xl shadow-lg transform hover:rotate-1 transition-all duration-300 overflow-hidden">
+            <div class="flex items-center p-4 relative">
+              <!-- Círculo perforado izquierdo -->
+              <div class="absolute -left-3 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-amber-400"></div>
+              <!-- Círculo perforado derecho -->
+              <div class="absolute -right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-amber-400"></div>
+              
+              <div class="w-16 h-16 rounded-full overflow-hidden border-3 border-amber-400 shadow-md mr-4 transform group-hover:rotate-12 transition-transform duration-300">
+                <img src={ev.img} alt={ev.titulo} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" />
+              </div>
+              
+              <div class="flex-1">
+                <span class="block text-xs text-amber-600 uppercase font-black tracking-wider mb-1 transform -rotate-1">{ev.fecha}</span>
+                <span class="block text-sm font-black text-neutral-900 leading-tight line-clamp-1">{ev.titulo}</span>
+              </div>
+              
+              <button class="bg-gradient-to-r from-orange-400 to-red-500 text-white px-3 py-2 rounded-full text-xs font-black hover:from-orange-500 hover:to-red-600 transition-all duration-300 shadow-lg transform hover:scale-110 rotate-3 hover:rotate-0">
+                🎫 INFO
+              </button>
+            </div>
+            
+            <!-- Línea de corte -->
+            <div class="border-t-2 border-dashed border-amber-300 mx-4"></div>
+            <div class="px-4 py-2">
+              <span class="text-xs text-amber-700 font-bold">ENTRADA GENERAL</span>
+            </div>
           </div>
         </div>
       ))}
     </div>
-    <div class="text-right mt-2 pr-2">
-      <span class="text-xs text-neutral-400">Desliza o pausa para ver más &rarr;</span>
+    <div class="text-center mt-4">
+      <span class="text-xs text-neutral-400">🎫 Colecciona todos los eventos &rarr;</span>
     </div>
   </div>
 </section>
