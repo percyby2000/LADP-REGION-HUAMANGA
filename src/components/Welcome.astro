@@ -385,20 +385,7 @@ import heroImg from '../assets/2.jpeg';
       if (hoursEl) hoursEl.textContent = '00';
       if (minutesEl) minutesEl.textContent = '00';
       if (secondsEl) secondsEl.textContent = '00';
-      
-      // Mostrar botón de ver el live
-      let liveBtn = document.getElementById('live-btn');
-      if (!liveBtn) {
-        liveBtn = document.createElement('a');
-        liveBtn.id = 'live-btn';
-        liveBtn.href = 'https://www.facebook.com/ladpregionhuamanga';
-        liveBtn.target = '_blank';
-        liveBtn.className = 'inline-flex items-center gap-3 bg-gradient-to-r from-red-500 via-orange-400 to-yellow-400 text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:scale-105 transition-all duration-300 mt-4';
-        liveBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 animate-pulse"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/></svg> Ver el Live`;
-        calendarEl.appendChild(liveBtn);
-      } else {
-        liveBtn.style.display = 'inline-flex';
-      }
+
     }
   }
   
