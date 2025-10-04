@@ -1,217 +1,476 @@
 ---
-const eventosProximos = [
-  {
-    titulo: 'Cumbre de Ministerios 2025',
-    fecha: '15-17 Octubre 2025',
-    lugar: 'Centro de Convenciones Huamanga',
-    img: '/cumbre.jpg',
-    descripcion: 'Gran encuentro de líderes ministeriales para fortalecer la visión y estrategias de crecimiento regional.',
-  },
-  {
-    titulo: 'Avivamiento 2025',
-    fecha: '5-7 Diciembre 2025',
-    lugar: 'Estadio Regional Huamanga',
-    img: '/LOGO-AVIVAMIENTO-2024.png',
-    descripcion: 'Tres días de avivamiento espiritual, sanidad y milagros para toda la región.',
-  },
-  {
-    titulo: 'Campaña Infantil',
-    fecha: '20-22 Noviembre 2025',
-    lugar: 'Parque Mariscal Cáceres',
-    img: '/campaniños.jpg',
-    descripcion: 'Evento especial para niños con juegos, enseñanzas bíblicas y actividades recreativas.',
-  },
-];
-
-const eventosPasados = [
-  {
-    titulo: 'Encuentro de Damas',
-    fecha: 'Julio 2025',
-    img: '/damas.jpg',
-    descripcion: 'Tiempo especial de renovación espiritual y fortalecimiento de vínculos entre las mujeres de la región.',
-  },
-  {
-    titulo: 'Devocional 40 Días',
-    fecha: 'Mayo 2025',
-    img: '/debocional40dias.jpg',
-    descripcion: 'Campaña regional de oración y ayuno que transformó vidas en toda la región Huamanga.',
-  },
-  {
-    titulo: 'La Resistencia',
-    fecha: 'Marzo 2025',
-    img: '/laresistencia.png',
-    descripcion: 'Evento juvenil de fortalecimiento espiritual y resistencia ante las adversidades.',
-  },
-];
+// Fecha del evento: 17 de octubre de 2025
+const eventDate = new Date('2025-10-17T19:00:00').getTime();
 ---
 
-<style>
-@keyframes slider-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-50%)); }
-}
-.slider-autoplay {
-  display: flex;
-  width: max-content;
-  animation: slider-scroll 30s linear infinite;
-}
-.slider-autoplay:hover {
-  animation-play-state: paused;
-}
-</style>
-
-<section class="w-full bg-white py-20 px-4 flex flex-col items-center gap-20">
-  <div class="max-w-5xl w-full text-center mb-8">
-    <h2 class="text-2xl md:text-3xl font-bold text-neutral-900 tracking-widest uppercase mb-2">Eventos</h2>
-    <div class="w-16 h-1 mx-auto bg-neutral-200 rounded mb-4"></div>
-    <p class="text-neutral-600 text-base md:text-lg mb-2">Descubre los próximos eventos y revive los mejores momentos de nuestra comunidad.</p>
+<section class="w-full min-h-screen relative overflow-hidden">
+  <!-- Imagen de fondo - Desktop -->
+  <div class="absolute inset-0 z-0 hidden md:block bg-desktop-image bg-cover bg-center bg-no-repeat">
+    <!-- Overlay para desktop -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-gray-900/80"></div>
   </div>
 
-  <!-- Carrusel automático de próximos eventos -->
-  <div class="w-full max-w-6xl mb-16 overflow-hidden relative">
-    <h3 class="text-xl md:text-2xl font-bold text-neutral-800 tracking-wide uppercase mb-8 text-center">Próximos Eventos</h3>
-    <div class="slider-autoplay gap-8">
-      {[...eventosProximos, ...eventosProximos].map((ev, idx) => (
-        <div class="min-w-[350px] sm:min-w-[400px] md:min-w-[450px] max-w-[90vw] relative group hover:scale-105 transition-all duration-300">
-          <!-- Flyer con forma inclinada -->
-          <div class="bg-gradient-to-br from-blue-500 via-blue-600 to-purple-700 rounded-3xl shadow-2xl transform rotate-2 group-hover:rotate-0 transition-transform duration-500 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
-            <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full translate-y-12 -translate-x-12"></div>
-            
-            <div class="relative z-10 p-8">
-              <!-- Imagen circular flotante -->
-              <div class="absolute -top-6 -right-6 w-24 h-24 rounded-full overflow-hidden border-4 border-white/30 shadow-xl">
-                <img src={ev.img} alt={ev.titulo} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
-              </div>
-              
-              <!-- Fecha destacada -->
-              <div class="inline-block bg-yellow-400 text-black px-4 py-2 rounded-full text-xs font-black mb-6 shadow-lg transform -rotate-3 group-hover:rotate-0 transition-transform duration-300">
-                {ev.fecha}
-              </div>
-              
-              <!-- Contenido principal -->
-              <h3 class="text-2xl md:text-3xl font-black text-white mb-4 leading-tight">{ev.titulo}</h3>
-              
-              <div class="flex items-center text-yellow-300 mb-4">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                </svg>
-                <span class="text-sm font-bold">{ev.lugar}</span>
-              </div>
-              
-              <p class="text-white/90 text-sm mb-6 leading-relaxed">{ev.descripcion}</p>
-              
-              <!-- Botones estilo sticker -->
-              <div class="flex gap-3 mt-6">
-                <button class="bg-white text-blue-700 px-6 py-3 rounded-full font-bold text-sm hover:bg-yellow-400 hover:text-black transition-all duration-300 shadow-lg transform hover:scale-110 flex items-center gap-2">
-                  ¡MÁS INFO!
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                  </svg>
-                </button>
-                <button class="border-3 border-yellow-400 bg-yellow-400/20 text-yellow-300 px-6 py-3 rounded-full font-bold text-sm hover:bg-yellow-400 hover:text-black transition-all duration-300 shadow-lg transform hover:scale-110">
-                  REGÍSTRATE
-                </button>
-              </div>
-            </div>
-            
-            <!-- Decoración adicional -->
-            <div class="absolute bottom-4 right-4 w-16 h-16 border-4 border-white/20 rounded-full"></div>
-          </div>
-        </div>
-      ))}
-    </div>
-    <div class="text-center mt-4">
-      <span class="text-xs text-neutral-400">🎪 Desliza para ver más eventos increíbles &rarr;</span>
+  <!-- Imagen de fondo - Móvil -->
+  <div class="absolute inset-0 z-0 block md:hidden">
+    <img 
+      src="/eventoproximo.jpg" 
+      alt="Evento Próximo Móvil" 
+      class="w-full h-full object-cover object-center"
+    />
+    <!-- Overlay especial para móvil -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/90"></div>
+    <!-- Elementos decorativos para móvil -->
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-10 left-10 w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
+      <div class="absolute top-20 right-16 w-2 h-2 bg-red-400 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+      <div class="absolute bottom-32 left-16 w-4 h-4 bg-yellow-400 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+      <div class="absolute bottom-40 right-12 w-3 h-3 bg-green-400 rounded-full animate-pulse" style="animation-delay: 1.5s;"></div>
     </div>
   </div>
 
-  <!-- Carrusel automático de eventos pasados tipo taquilla -->
-  <div class="w-full max-w-6xl overflow-hidden relative">
-    <h4 class="text-lg font-semibold text-neutral-900 mb-6 tracking-wide uppercase text-center">Eventos Pasados</h4>
-    <div class="slider-autoplay gap-6">
-      {[...eventosPasados, ...eventosPasados].map((ev, idx) => (
-        <div class="min-w-[280px] max-w-[80vw] relative group hover:scale-105 transition-all duration-300">
-          <!-- Flyer tipo polaroid -->
-          <div class="bg-white rounded-2xl shadow-2xl transform -rotate-1 group-hover:rotate-1 transition-all duration-500 overflow-hidden border-8 border-white">
-            <div class="relative">
-              <img src={ev.img} alt={ev.titulo} class="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
-              
-              <!-- Sticker de fecha -->
-              <div class="absolute top-3 right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-black shadow-lg transform rotate-12 group-hover:rotate-6 transition-transform duration-300">
-                {ev.fecha}
-              </div>
-              
-              <!-- Sello de "REALIZADO" -->
-              <div class="absolute bottom-3 left-3 bg-green-600/90 backdrop-blur-sm text-white px-2 py-1 rounded text-xs font-bold shadow transform -rotate-12 border-2 border-green-400">
-                ✓ REALIZADO
-              </div>
-            </div>
-            
-            <!-- Área de texto como etiqueta -->
-            <div class="p-4 bg-white relative">
-              <h5 class="text-base font-black text-neutral-900 mb-2 leading-tight">{ev.titulo}</h5>
-              <p class="text-neutral-600 text-xs mb-3 leading-relaxed">{ev.descripcion}</p>
-              
-              <button class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full font-bold text-xs hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg transform hover:scale-110 flex items-center gap-2 mx-auto">
-                📸 VER FOTOS
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-              </button>
-              
-              <!-- Decoración de esquina -->
-              <div class="absolute top-1 right-1 w-3 h-3 bg-yellow-400 rounded-full"></div>
-            </div>
+  <!-- Contenedor principal -->
+  <div class="relative z-10 min-h-screen flex flex-col justify-end pb-16 md:pb-20">
+
+    <!-- Título del evento - Solo móvil -->
+    <div class="block md:hidden text-center mb-8 px-6">
+      <div class="inline-block bg-red-600/90 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
+        FIESTA NACIONAL LADP
+      </div>
+      <h1 class="text-4xl font-black text-white mb-2 drop-shadow-2xl">
+        ¡VEN Y CELEBRA!
+      </h1>
+      <div class="text-lg text-orange-300 font-bold">
+        17 AL 19 DE OCTUBRE
+      </div>
+      <div class="text-sm text-blue-200 mt-2">
+        Colegio Mariscal Cáceres
+      </div>
+    </div>
+
+    <!-- Contador Principal -->
+    <div class="w-full px-6">
+      <div id="countdown-section" class="text-center">
+        <!-- Grid del contador - Responsive -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-sm md:max-w-md mx-auto">
+        
+        <!-- Días -->
+        <div class="countdown-card group">
+          <div class="countdown-inner">
+            <div id="days" class="countdown-number">00</div>
+            <div class="countdown-label">Días</div>
           </div>
         </div>
-      ))}
-    </div>
-    <div class="text-center mt-4">
-      <span class="text-xs text-neutral-400">📷 Revive los mejores momentos &rarr;</span>
+        
+        <!-- Horas -->
+        <div class="countdown-card group">
+          <div class="countdown-inner">
+            <div id="hours" class="countdown-number">00</div>
+            <div class="countdown-label">Horas</div>
+          </div>
+        </div>
+        
+        <!-- Minutos -->
+        <div class="countdown-card group">
+          <div class="countdown-inner">
+            <div id="minutes" class="countdown-number">00</div>
+            <div class="countdown-label">Minutos</div>
+          </div>
+        </div>
+        
+        <!-- Segundos -->
+        <div class="countdown-card group">
+          <div class="countdown-inner">
+            <div id="seconds" class="countdown-number">00</div>
+            <div class="countdown-label">Segundos</div>
+          </div>
+        </div>
+        
+      </div>
     </div>
   </div>
 
-  <!-- Cinta/slider horizontal de banners destacados -->
-  <div class="w-full max-w-7xl mt-20 overflow-hidden relative">
-    <h4 class="text-lg font-semibold text-neutral-900 mb-6 tracking-wide uppercase text-center">Todos los Eventos</h4>
-    <div class="slider-autoplay gap-4">
-      {[...eventosProximos, ...eventosPasados, ...eventosProximos, ...eventosPasados].map((ev, idx) => (
-        <div class="min-w-[300px] relative group hover:scale-105 transition-all duration-300">
-          <!-- Ticket/entrada estilo -->
-          <div class="bg-gradient-to-r from-amber-100 via-white to-amber-100 border-2 border-dashed border-amber-400 rounded-2xl shadow-lg transform hover:rotate-1 transition-all duration-300 overflow-hidden">
-            <div class="flex items-center p-4 relative">
-              <!-- Círculo perforado izquierdo -->
-              <div class="absolute -left-3 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-amber-400"></div>
-              <!-- Círculo perforado derecho -->
-              <div class="absolute -right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-white rounded-full border-2 border-amber-400"></div>
-              
-              <div class="w-16 h-16 rounded-full overflow-hidden border-3 border-amber-400 shadow-md mr-4 transform group-hover:rotate-12 transition-transform duration-300">
-                <img src={ev.img} alt={ev.titulo} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" />
-              </div>
-              
-              <div class="flex-1">
-                <span class="block text-xs text-amber-600 uppercase font-black tracking-wider mb-1 transform -rotate-1">{ev.fecha}</span>
-                <span class="block text-sm font-black text-neutral-900 leading-tight line-clamp-1">{ev.titulo}</span>
-              </div>
-              
-              <button class="bg-gradient-to-r from-orange-400 to-red-500 text-white px-3 py-2 rounded-full text-xs font-black hover:from-orange-500 hover:to-red-600 transition-all duration-300 shadow-lg transform hover:scale-110 rotate-3 hover:rotate-0">
-                🎫 INFO
-              </button>
-            </div>
-            
-            <!-- Línea de corte -->
-            <div class="border-t-2 border-dashed border-amber-300 mx-4"></div>
-            <div class="px-4 py-2">
-              <span class="text-xs text-amber-700 font-bold">ENTRADA GENERAL</span>
+  <!-- Transmisión en Vivo -->
+  <div id="live-section" class="live-hidden relative z-10 w-full h-full flex items-center justify-center px-6">
+    <div class="w-full max-w-6xl mx-auto">
+      <div class="text-center mb-6">
+        <div class="inline-flex items-center gap-3 bg-red-600 backdrop-blur-sm text-white px-6 py-3 rounded-full shadow-lg">
+          <div class="w-3 h-3 bg-red-300 rounded-full animate-pulse"></div>
+          <span class="text-lg font-semibold">Transmisión en Vivo</span>
+        </div>
+      </div>
+      
+      <div class="bg-black/70 backdrop-blur-md rounded-2xl p-6 shadow-2xl">
+        <div class="aspect-video bg-black rounded-xl overflow-hidden relative">
+          <div id="stream-placeholder" class="flex items-center justify-center h-full text-white">
+            <div class="text-center">
+              <div class="w-16 h-16 border-4 border-white/30 border-t-white rounded-full animate-spin mx-auto mb-4"></div>
+              <p class="text-lg">Conectando...</p>
             </div>
           </div>
+          <iframe 
+            id="live-stream" 
+            class="w-full h-full" 
+            style="display: none;" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
         </div>
-      ))}
-    </div>
-    <div class="text-center mt-4">
-      <span class="text-xs text-neutral-400">🎫 Colecciona todos los eventos &rarr;</span>
+      </div>
     </div>
   </div>
 </section>
+
+<script is:inline>
+  // Configuración del contador regresivo
+  const eventDate = new Date('2025-10-17T19:00:00').getTime();
+  
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+    
+    if (distance > 0) {
+      // Cálculos del tiempo restante
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      // Actualizar el DOM con animación
+      const daysEl = document.getElementById('days');
+      const hoursEl = document.getElementById('hours');
+      const minutesEl = document.getElementById('minutes');
+      const secondsEl = document.getElementById('seconds');
+      
+      // Función para actualizar número con animación
+      function updateNumber(element, newValue) {
+        if (element && element.textContent !== newValue) {
+          element.classList.add('number-change');
+          element.textContent = newValue;
+          setTimeout(function() {
+            element.classList.remove('number-change');
+          }, 600);
+        } else if (element && !element.textContent) {
+          element.textContent = newValue;
+        }
+      }
+      
+      updateNumber(daysEl, days.toString().padStart(2, '0'));
+      updateNumber(hoursEl, hours.toString().padStart(2, '0'));
+      updateNumber(minutesEl, minutes.toString().padStart(2, '0'));
+      updateNumber(secondsEl, seconds.toString().padStart(2, '0'));
+    } else {
+      // El evento ha comenzado - mostrar transmisión en vivo
+      showLiveStream();
+    }
+  }
+  
+  function showLiveStream() {
+    const countdownSection = document.getElementById('countdown-section');
+    const liveSection = document.getElementById('live-section');
+    const streamPlaceholder = document.getElementById('stream-placeholder');
+    const liveStreamIframe = document.getElementById('live-stream');
+    
+    if (countdownSection && liveSection) {
+      // Ocultar contador y mostrar transmisión
+      countdownSection.style.display = 'none';
+      liveSection.classList.remove('live-hidden');
+      
+      // Simular carga de la transmisión (aquí pondrías la URL real de YouTube/Facebook Live)
+      setTimeout(function() {
+        if (streamPlaceholder && liveStreamIframe) {
+          streamPlaceholder.style.display = 'none';
+          liveStreamIframe.style.display = 'block';
+          // Aquí pondrías la URL real de la transmisión en vivo
+          // liveStreamIframe.src = 'https://www.youtube.com/embed/TU_ID_DE_VIDEO_EN_VIVO?autoplay=1';
+        }
+      }, 3000);
+    }
+  }
+  
+  // Verificar inmediatamente si el evento ya comenzó
+  function checkEventStatus() {
+    const now = new Date().getTime();
+    if (eventDate <= now) {
+      showLiveStream();
+    } else {
+      // Iniciar el contador regresivo
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    }
+  }
+  
+  // Inicializar cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', checkEventStatus);
+</script>
+
+<style>
+  /* Estilos del contador moderno y elegante */
+  .countdown-card {
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .countdown-inner {
+    position: relative;
+    padding: 1rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Fondo con opacidad */
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.9) 0%, 
+      rgba(255, 255, 255, 0.85) 100%);
+    
+    /* Backdrop blur */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    /* Bordes y sombras más sutiles */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+      0 8px 25px -8px rgba(0, 0, 0, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.2);
+  }
+  
+  .countdown-card:hover .countdown-inner {
+    transform: scale(1.05);
+    box-shadow: 
+      0 35px 60px -12px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Efecto de brillo en hover */
+  .countdown-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
+  
+  .countdown-card:hover .countdown-inner::before {
+    left: 100%;
+  }
+  
+  .countdown-number {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 0.25rem;
+    line-height: 1;
+    position: relative;
+    z-index: 10;
+    
+    background: linear-gradient(135deg, 
+      #1f2937 0%, 
+      #374151 50%, 
+      #1f2937 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Sombra de texto sutil */
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .countdown-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #4b5563;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    position: relative;
+    z-index: 10;
+  }
+  
+
+  
+  /* Efecto de escala en el cambio de número */
+  .number-change {
+    animation: numberPulse 0.6s ease-out;
+  }
+  
+  @keyframes numberPulse {
+    0% { 
+      transform: scale(1); 
+    }
+    50% { 
+      transform: scale(1.1);
+      text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    }
+    100% { 
+      transform: scale(1); 
+    }
+  }
+  
+  /* Estilos específicos para móvil */
+  @media (max-width: 767px) {
+    /* Contador más compacto en móvil */
+    .countdown-inner {
+      padding: 0.8rem;
+      border-radius: 0.8rem;
+      background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.95) 0%, 
+        rgba(248, 250, 252, 0.9) 100%);
+      box-shadow: 
+        0 10px 30px -8px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.3);
+    }
+    
+    .countdown-number {
+      font-size: 1.6rem;
+      margin-bottom: 0.2rem;
+      background: linear-gradient(135deg, 
+        #dc2626 0%, 
+        #ea580c 50%, 
+        #dc2626 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .countdown-label {
+      font-size: 0.65rem;
+      color: #374151;
+      font-weight: 700;
+    }
+    
+    /* Efectos especiales para móvil */
+    .countdown-card:hover .countdown-inner {
+      transform: scale(1.08);
+      box-shadow: 
+        0 15px 40px -10px rgba(220, 38, 38, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.4);
+    }
+  }
+
+  /* Estilos para tablet */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .countdown-inner {
+      padding: 1.1rem;
+    }
+    
+    .countdown-number {
+      font-size: 2rem;
+    }
+    
+    .countdown-label {
+      font-size: 0.75rem;
+    }
+  }
+
+  /* Estilos para desktop */
+  @media (min-width: 1024px) {
+    .countdown-inner {
+      padding: 1.5rem;
+    }
+    
+    .countdown-number {
+      font-size: 2.5rem;
+    }
+    
+    .countdown-label {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Clase para ocultar la transmisión en vivo */
+  .live-hidden {
+    display: none;
+  }
+  
+  /* Gradiente radial para efecto de viñeta */
+  .bg-gradient-radial {
+    background: radial-gradient(circle at center, transparent 0%, transparent 60%, rgba(0, 0, 0, 0.4) 100%);
+  }
+  
+  /* Fondo de respaldo elegante */
+  .bg-desktop-image {
+    background-image: url('/ladpweb.svg');
+  }
+
+  /* Estilos específicos para el título móvil */
+  @media (max-width: 767px) {
+    h1 {
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+    
+    /* Animación sutil para elementos decorativos */
+    .animate-pulse {
+      animation: mobilePulse 2s infinite;
+    }
+    
+    @keyframes mobilePulse {
+      0%, 100% { 
+        opacity: 0.4;
+        transform: scale(1);
+      }
+      50% { 
+        opacity: 0.8;
+        transform: scale(1.2);
+      }
+    }
+    
+    /* Mejora del layout móvil */
+    .mobile-grid {
+      gap: 0.5rem;
+    }
+    
+    /* Efectos de fondo para móvil */
+    section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(239, 68, 68, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(34, 197, 94, 0.1) 0%, transparent 50%);
+      z-index: 1;
+    }
+  }
+  
+  /* Efecto de partículas de fondo (sutil) */
+  .countdown-card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 3px;
+    background: linear-gradient(45deg, rgba(59, 130, 246, 0.2), rgba(147, 51, 234, 0.2));
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .countdown-card:hover::after {
+    opacity: 1;
+    animation: particle 2s infinite;
+  }
+  
+  @keyframes particle {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.2;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.3);
+      opacity: 0.5;
+    }
+  }
+</style>

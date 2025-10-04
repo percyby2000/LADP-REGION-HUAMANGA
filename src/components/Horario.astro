@@ -1,26 +1,79 @@
 ---
-const dias = [
-  { dia: 'Lunes', persona: 'Pr. José Carrasco.' },
-  { dia: 'Martes', persona: 'Pr. Juan Salas.' },
-  { dia: 'Miércoles', persona: 'Toda la Junta.' },
-  { dia: 'Jueves', persona: 'Pr. Arturo Valdivia.' },
-  { dia: 'Viernes', persona: 'Psa. Marlene Mostacero.' },
+const horarioAtencion = [
+  { 
+    dia: 'Lunes', 
+    nombre: 'Pr. Uldarico Villantoy Lolay', 
+    cargo: 'Presidente',
+    horarioManana: '8:00 a.m – 12:00 pm',
+    horarioTarde: '2:00 pm – 5:00 pm'
+  },
+  { 
+    dia: 'Martes', 
+    nombre: 'Pra. Juana Mallqui Asto', 
+    cargo: 'Vicepresidenta',
+    horarioManana: '8:00 a.m – 12:00 pm',
+    horarioTarde: '2:00 pm – 5:00 pm'
+  },
+  { 
+    dia: 'Miércoles', 
+    nombre: 'Pr. Alfredo Espinoza', 
+    cargo: 'Secretaria Auxiliar 1 y 2',
+    horarioManana: '8:00 a.m – 12:00 pm',
+    horarioTarde: '2:00 pm – 5:00 pm'
+  },
+  { 
+    dia: 'Jueves', 
+    nombre: 'Pra. Martha Gutiérrez Cárdenas', 
+    cargo: 'Tesorera',
+    horarioManana: '8:00 a.m – 12:00 pm',
+    horarioTarde: '2:00 pm – 5:00 pm'
+  },
+  { 
+    dia: 'Viernes', 
+    nombre: 'Pr. Uldarico Villantoy Lolay', 
+    cargo: 'Presidente',
+    horarioManana: '8:00 a.m – 12:00 pm',
+    horarioTarde: '2:00 pm – 5:00 pm'
+  },
 ];
 ---
 
 <section class="w-full bg-white py-20 px-4 flex flex-col items-center">
-  <div class="max-w-2xl w-full flex flex-col items-center gap-8">
-    <span class="text-sm text-blue-900 font-semibold tracking-widest uppercase mb-2">Junta Ejecutiva Regional</span>
-    <h2 class="text-3xl md:text-4xl font-extrabold text-blue-900 mb-2 text-center">Días de atención:</h2>
+  <div class="max-w-4xl w-full flex flex-col items-center gap-8">
+    <span class="text-sm text-blue-900 font-semibold tracking-widest uppercase mb-2">Horario de Atención</span>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-blue-900 mb-2 text-center">De los Ejecutivos</h2>
     <div class="w-16 h-1 bg-blue-900 mb-6 mx-auto"></div>
-    <!-- Plantilla tipo calendario -->
-    <div class="w-full max-w-lg bg-neutral-50 border border-blue-100 rounded-2xl shadow-lg p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-      {dias.map((d) => (
-        <div class="flex flex-col items-start bg-white border border-blue-100 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow duration-200">
-          <span class="text-base font-bold text-blue-900 mb-1">{d.dia}</span>
-          <span class="text-sm text-neutral-700">{d.persona}</span>
-        </div>
-      ))}
+    
+    <!-- Tabla de horarios -->
+    <div class="w-full bg-neutral-50 border border-blue-100 rounded-2xl shadow-lg overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead class="bg-amber-400">
+            <tr>
+              <th class="px-4 py-3 text-left font-bold text-gray-800 border-r border-gray-300">DÍAS</th>
+              <th class="px-4 py-3 text-left font-bold text-gray-800 border-r border-gray-300">NOMBRE/CARGO</th>
+              <th class="px-4 py-3 text-left font-bold text-gray-800 border-r border-gray-300">H/MAÑANA</th>
+              <th class="px-4 py-3 text-left font-bold text-gray-800">H/TARDE</th>
+            </tr>
+          </thead>
+          <tbody>
+            {horarioAtencion.map((item, index) => (
+              <tr class={`${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'} hover:bg-blue-50 transition-colors duration-200`}>
+                <td class="px-4 py-4 font-bold text-blue-900 border-r border-gray-200">{item.dia}</td>
+                <td class="px-4 py-4 border-r border-gray-200">
+                  <div class="flex flex-col">
+                    <span class="font-semibold text-gray-800">{item.nombre}</span>
+                    <span class="text-sm text-gray-600">{item.cargo}</span>
+                    <span class="text-xs text-gray-500">Secretaria Auxiliar 1 y 2</span>
+                  </div>
+                </td>
+                <td class="px-4 py-4 text-gray-700 border-r border-gray-200">{item.horarioManana}</td>
+                <td class="px-4 py-4 text-gray-700">{item.horarioTarde}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </section>
